@@ -1,12 +1,12 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
 Summary(pl):	Lekki, ale w pe³ni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
-Version:	0.3.4
+Version:	0.4.0
 Release:	1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
-# Source0-md5:	aaea5b3cfc666724eacd7587a7327b8e
+# Source0-md5:	1c1fcf3100ab47abb2f6f925c9803753
 URL:		http://cgdb.sourceforge.net/
 BuildRequires:	readline-devel
 Requires:	gdb
