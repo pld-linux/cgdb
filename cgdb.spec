@@ -9,6 +9,7 @@ Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
 # Source0-md5:	1c1fcf3100ab47abb2f6f925c9803753
 Patch0:		%{name}-home_etc.patch
 URL:		http://cgdb.sourceforge.net/
+BuildRequires:	automake
 BuildRequires:	readline-devel
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
