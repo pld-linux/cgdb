@@ -8,7 +8,7 @@ Group:		Development/Debuggers
 Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
 # Source0-md5:	aaea5b3cfc666724eacd7587a7327b8e
 URL:		http://cgdb.sourceforge.net/
-BuildRequires:	ncurses-devel
+BuildRequires:	readline-devel
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
