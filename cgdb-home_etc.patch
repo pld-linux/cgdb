@@ -1,0 +1,17 @@
+diff -Nru cgdb-0.4.0.orig/cgdb/src/cgdb.c cgdb-0.4.0/cgdb/src/cgdb.c
+--- cgdb-0.4.0.orig/cgdb/src/cgdb.c	2003-10-24 18:08:16.000000000 +0200
++++ cgdb-0.4.0/cgdb/src/cgdb.c	2003-11-19 11:29:11.000000000 +0100
+@@ -190,10 +190,11 @@
+ 
+ static int init_home_dir(void) {
+     /* Get the home directory */
+-    char *home_dir = getenv("HOME");
++    char *home_dir = getenv("HOME_ETC");
+     const char *cgdb_dir = ".cgdb";
+ 
+-    /* Create the config directory */
++    if (!home_dir) home_dir = getenv("HOME");
++		/* Create the config directory */
+     if ( ! fs_util_create_dir_in_base ( home_dir, cgdb_dir ) ) {
+         err_msg("%s:%d fs_util_create_dir_in_base error", __FILE__, __LINE__);
+         return -1; 
