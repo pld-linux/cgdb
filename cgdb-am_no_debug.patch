@@ -1,0 +1,90 @@
+diff -Nur cgdb-0.5.3~/cgdb/lib/kui/src/Makefile.am cgdb-0.5.3/cgdb/lib/kui/src/Makefile.am
+--- cgdb-0.5.3~/cgdb/lib/kui/src/Makefile.am	2005-05-21 18:05:56.000000000 +0200
++++ cgdb-0.5.3/cgdb/lib/kui/src/Makefile.am	2005-08-24 23:58:38.751560968 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall -I$(top_srcdir)/various/util/include -I$(top_srcdir)/various/adt/include -I$(srcdir)/../inc
++AM_CFLAGS = -Wall -I$(top_srcdir)/various/util/include -I$(top_srcdir)/various/adt/include -I$(srcdir)/../inc
+ 
+ # create the input library
+ noinst_LIBRARIES = libkui.a
+diff -Nur cgdb-0.5.3~/cgdb/lib/wm/src/Makefile.am cgdb-0.5.3/cgdb/lib/wm/src/Makefile.am
+--- cgdb-0.5.3~/cgdb/lib/wm/src/Makefile.am	2005-05-21 18:05:56.000000000 +0200
++++ cgdb-0.5.3/cgdb/lib/wm/src/Makefile.am	2005-08-24 23:58:38.758559904 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall -I$(top_srcdir)/various/adt/include -I$(srcdir)/../inc
++AM_CFLAGS = -Wall -I$(top_srcdir)/various/adt/include -I$(srcdir)/../inc
+ 
+ # create the input library
+ noinst_LIBRARIES = libwm.a
+diff -Nur cgdb-0.5.3~/cgdb/src/Makefile.am cgdb-0.5.3/cgdb/src/Makefile.am
+--- cgdb-0.5.3~/cgdb/src/Makefile.am	2005-08-03 04:24:11.000000000 +0200
++++ cgdb-0.5.3/cgdb/src/Makefile.am	2005-08-24 23:58:38.761559448 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall \
++AM_CFLAGS = -Wall \
+ -I$(top_srcdir)/tgdb/tgdb-base/include \
+ -I$(top_srcdir)/tgdb/annotate-two/include \
+ -I$(top_srcdir)/tgdb/gdbmi/include \
+diff -Nur cgdb-0.5.3~/cgdb/tokenizer/src/Makefile.am cgdb-0.5.3/cgdb/tokenizer/src/Makefile.am
+--- cgdb-0.5.3~/cgdb/tokenizer/src/Makefile.am	2005-05-21 18:05:57.000000000 +0200
++++ cgdb-0.5.3/cgdb/tokenizer/src/Makefile.am	2005-08-24 23:58:38.740562640 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall -I$(srcdir)/../include \
++AM_CFLAGS = -Wall -I$(srcdir)/../include \
+ -I$(top_srcdir)/various/adt/include \
+ -I$(top_srcdir)/various/util/include
+ 
+diff -Nur cgdb-0.5.3~/tgdb/annotate-two/src/Makefile.am cgdb-0.5.3/tgdb/annotate-two/src/Makefile.am
+--- cgdb-0.5.3~/tgdb/annotate-two/src/Makefile.am	2005-05-21 18:05:57.000000000 +0200
++++ cgdb-0.5.3/tgdb/annotate-two/src/Makefile.am	2005-08-24 23:58:38.715566440 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall \
++AM_CFLAGS = -Wall \
+ -I$(top_srcdir)/various/util/include \
+ -I$(top_srcdir)/various/adt/include \
+ -I$(top_srcdir)/various/rlctx/include \
+diff -Nur cgdb-0.5.3~/tgdb/gdbmi/src/Makefile.am cgdb-0.5.3/tgdb/gdbmi/src/Makefile.am
+--- cgdb-0.5.3~/tgdb/gdbmi/src/Makefile.am	2005-05-21 18:05:57.000000000 +0200
++++ cgdb-0.5.3/tgdb/gdbmi/src/Makefile.am	2005-08-24 23:58:38.722565376 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall \
++AM_CFLAGS = -Wall \
+ -I$(top_srcdir)/various/util/include \
+ -I$(top_srcdir)/various/adt/include \
+ -I$(top_srcdir)/tgdb/tgdb-base/include \
+diff -Nur cgdb-0.5.3~/tgdb/tgdb-base/src/Makefile.am cgdb-0.5.3/tgdb/tgdb-base/src/Makefile.am
+--- cgdb-0.5.3~/tgdb/tgdb-base/src/Makefile.am	2005-08-03 04:24:15.000000000 +0200
++++ cgdb-0.5.3/tgdb/tgdb-base/src/Makefile.am	2005-08-24 23:58:38.730564160 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall \
++AM_CFLAGS = -Wall \
+ -I$(top_srcdir)/tgdb/tgdb-base/include \
+ -I$(top_srcdir)/tgdb/annotate-two/include \
+ -I$(top_srcdir)/tgdb/gdbmi/include \
+diff -Nur cgdb-0.5.3~/various/adt/src/Makefile.am cgdb-0.5.3/various/adt/src/Makefile.am
+--- cgdb-0.5.3~/various/adt/src/Makefile.am	2005-05-21 18:05:57.000000000 +0200
++++ cgdb-0.5.3/various/adt/src/Makefile.am	2005-08-24 23:58:38.690570240 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall -I$(top_srcdir)/various/util/include -I$(srcdir)/../include
++AM_CFLAGS = -Wall -I$(top_srcdir)/various/util/include -I$(srcdir)/../include
+ 
+ noinst_LIBRARIES = libadt.a
+ 
+diff -Nur cgdb-0.5.3~/various/rlctx/src/Makefile.am cgdb-0.5.3/various/rlctx/src/Makefile.am
+--- cgdb-0.5.3~/various/rlctx/src/Makefile.am	2005-08-03 04:24:16.000000000 +0200
++++ cgdb-0.5.3/various/rlctx/src/Makefile.am	2005-08-24 23:58:38.698569024 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall \
++AM_CFLAGS = -Wall \
+ -I$(top_srcdir)/various/util/include \
+ -I$(top_srcdir)/various/adt/include \
+ -I$(srcdir)/../include
+diff -Nur cgdb-0.5.3~/various/util/src/Makefile.am cgdb-0.5.3/various/util/src/Makefile.am
+--- cgdb-0.5.3~/various/util/src/Makefile.am	2004-09-08 21:41:44.000000000 +0200
++++ cgdb-0.5.3/various/util/src/Makefile.am	2005-08-24 23:58:38.669573432 +0200
+@@ -1,4 +1,4 @@
+-AM_CFLAGS = -g -Wall -I$(srcdir)/../include
++AM_CFLAGS = -Wall -I$(srcdir)/../include
+ noinst_LIBRARIES = libutil.a
+ 
+ libutil_a_SOURCES = \
