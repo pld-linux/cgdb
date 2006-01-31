@@ -9,10 +9,12 @@ Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
 # Source0-md5:	61a5c5b6b76de70efd0bf2335b470f99
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-missing_includes.patch
+Patch2:		%{name}-info.patch
 URL:		http://cgdb.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	readline-devel >= 5.1
+BuildRequires:	texinfo
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -37,6 +39,7 @@ powinni czuæ siê jak w domu.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 find . -type f -name Makefile.am -exec %{__sed} -i 's@AM_CFLAGS = -g @AM_CFLAGS = @' '{}' ';'
 
@@ -71,4 +74,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
-%{_infodir}/*
+%{_infodir}/*.info*
