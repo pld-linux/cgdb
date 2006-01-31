@@ -47,8 +47,7 @@ CPPFLAGS=' -I/usr/include/ncurses '
 %{__autoheader}
 %{__automake}
 
-%configure 
-
+%configure
 %{__make}
 
 %install
