@@ -1,19 +1,18 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
 Summary(pl):	Lekki, ale w pe³ni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
-Version:	0.5.3
-Release:	3
+Version:	0.6.0
+Release:	1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
-# Source0-md5:	51adf1db0307adaba24336ef3a18e0c3
+# Source0-md5:	61a5c5b6b76de70efd0bf2335b470f99
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-missing_includes.patch
-Patch2:		%{name}-am_no_debug.patch
 URL:		http://cgdb.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	readline-devel
+BuildRequires:	readline-devel >= 5.1
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -38,16 +37,17 @@ powinni czuæ siê jak w domu.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
+
+find . -type f -name Makefile.am -exec %{__sed} -i 's@AM_CFLAGS = -g @AM_CFLAGS = @' '{}' ';'
 
 %build
-CPPFLAGS=" -I/usr/include/ncurses "
+CPPFLAGS=' -I/usr/include/ncurses '
 %{__aclocal} -I config
 %{__autoconf}
 %{__autoheader}
 %{__automake}
 
-%configure
+%configure 
 
 %{__make}
 
@@ -62,7 +62,14 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
+%postun
+[ ! -x /usr/sbin/fix-info-dir ] || /usr/sbin/fix-info-dir -c %{_infodir} >/dev/null 2>&1
+
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
+%{_infodir}/*
