@@ -1,0 +1,14 @@
+--- cgdb-0.6.0/doc/cgdb.texinfo.orig	2006-01-31 03:32:25.000000000 +0100
++++ cgdb-0.6.0/doc/cgdb.texinfo	2006-01-31 21:20:35.709933750 +0100
+@@ -29,9 +29,9 @@
+ @end quotation
+ @end copying
+ 
+-@dircategory Software development
++@dircategory Programming tools:
+ @direntry
+-* CGDB: (CGDB)GNU Ncurses front end to GDB.
++* CGDB: (cgdb).				GNU Ncurses front end to GDB
+ @end direntry
+ 
+ @titlepage
