@@ -1,12 +1,12 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
 Summary(pl):	Lekki, ale w pe³ni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
-Version:	0.6.0
+Version:	0.6.1
 Release:	1
 License:	GPL
 Group:		Development/Debuggers
 Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
-# Source0-md5:	61a5c5b6b76de70efd0bf2335b470f99
+# Source0-md5:	5ab80fad5534e04b1b2c8affe65e9eae
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-missing_includes.patch
 Patch2:		%{name}-info.patch
@@ -74,4 +74,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %attr(755,root,root) %{_bindir}/*
+%{_mandir}/man1/*
 %{_infodir}/*.info*
