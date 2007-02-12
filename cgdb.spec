@@ -1,5 +1,5 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
-Summary(pl):	Lekki, ale w pe³ni funkcjonalny frontend do gdb oparty na ncurses
+Summary(pl.UTF-8):   Lekki, ale w peÅ‚ni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
 Version:	0.6.3
 Release:	1
@@ -26,14 +26,14 @@ familiar GDB text interface, with a split screen showing the source as
 it executes. The UI is modeled on the classic Unix text editor, vi.
 Those familiar with vi should feel right at home using CGDB.
 
-%description -l pl
+%description -l pl.UTF-8
 CGDB to oparty na curses interfejs do GNU Debuggera (GDB). Celem CGDB
-jest bycie lekkim i reaktywnym, nie obci±¿onym niepotrzebnymi
-mo¿liwo¶ciami. Interfejs zosta³ tak zaprojektowany, by dostarczyæ
-znajomy interfejs tekstowy GDB z podzielonym ekranem pokazuj±cym
-¼ród³a wykonywanego kodu. Interfejs u¿ytkownika jest modelowany na
-klasyczny uniksowy edytor tekstu - vi. Znaj±cy vi u¿ywaj±c CGDB
-powinni czuæ siê jak w domu.
+jest bycie lekkim i reaktywnym, nie obciÄ…Å¼onym niepotrzebnymi
+moÅ¼liwoÅ›ciami. Interfejs zostaÅ‚ tak zaprojektowany, by dostarczyÄ‡
+znajomy interfejs tekstowy GDB z podzielonym ekranem pokazujÄ…cym
+ÅºrÃ³dÅ‚a wykonywanego kodu. Interfejs uÅ¼ytkownika jest modelowany na
+klasyczny uniksowy edytor tekstu - vi. ZnajÄ…cy vi uÅ¼ywajÄ…c CGDB
+powinni czuÄ‡ siÄ™ jak w domu.
 
 %prep
 %setup -q
