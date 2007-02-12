@@ -1,5 +1,5 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
-Summary(pl.UTF-8):   Lekki, ale w pełni funkcjonalny frontend do gdb oparty na ncurses
+Summary(pl.UTF-8):	Lekki, ale w pełni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
 Version:	0.6.3
 Release:	1
