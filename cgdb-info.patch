@@ -8,7 +8,7 @@
 +@dircategory Programming tools:
  @direntry
 -* CGDB: (CGDB).                   GNU Ncurses front end to GDB.
-+* CGDB: (cgdb).                   GNU Ncurses front end to GDB.
++* CGDB: (cgdb).				GNU Ncurses front end to GDB
  @end direntry
  
  @titlepage
