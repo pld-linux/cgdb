@@ -3,15 +3,15 @@ Summary(pl.UTF-8):	Lekki, ale w pełni funkcjonalny frontend do gdb oparty na nc
 Name:		cgdb
 Version:	0.6.5
 Release:	1
-License:	GPL
+License:	GPL v2
 Group:		Development/Debuggers
-Source0:	http://dl.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
+Source0:	http://downloads.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
 # Source0-md5:	f7d054ec74b1431f3f8304195ddd21b4
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-missing_includes.patch
 Patch2:		%{name}-info.patch
 URL:		http://cgdb.sourceforge.net/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.5
 BuildRequires:	automake
 BuildRequires:	readline-devel >= 5.1
 BuildRequires:	texinfo
@@ -41,8 +41,6 @@ powinni czuć się jak w domu.
 %patch1 -p1
 %patch2 -p1
 
-find . -type f -name Makefile.am -exec %{__sed} -i 's@AM_CFLAGS = -g @AM_CFLAGS = @' '{}' ';'
-
 %build
 CPPFLAGS=' -I/usr/include/ncurses '
 %{__aclocal} -I config
@@ -64,17 +62,17 @@ rm -rf $RPM_BUILD_ROOT
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post	-p	/sbin/postshell
+%post	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
-%postun	-p	/sbin/postshell
+%postun	-p /sbin/postshell
 -/usr/sbin/fix-info-dir -c %{_infodir}
 
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
-%attr(755,root,root) %{_bindir}/*
-%{_mandir}/man1/*
-%{_infodir}/*.info*
+%attr(755,root,root) %{_bindir}/cgdb
+%{_mandir}/man1/cgdb.1*
+%{_infodir}/cgdb.info*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/cgdb.txt
