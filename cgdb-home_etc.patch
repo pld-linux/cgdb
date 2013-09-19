@@ -1,15 +1,15 @@
---- cgdb-0.6.1/cgdb/src/cgdb.c~	2006-03-08 00:08:42.000000000 +0100
-+++ cgdb-0.6.1/cgdb/src/cgdb.c	2006-03-08 00:10:29.000000000 +0100
-@@ -683,10 +683,11 @@
- init_home_dir (void)
+--- cgdb-0.6.7/cgdb/cgdb.c.orig	2013-09-19 19:12:29.892082233 +0200
++++ cgdb-0.6.7/cgdb/cgdb.c	2013-09-19 19:14:09.012082558 +0200
+@@ -750,10 +750,11 @@
+ static int init_home_dir(void)
  {
-   /* Get the home directory */
--  char *home_dir = getenv ("HOME");
-+  char *home_dir = getenv ("HOME_ETC");
-   const char *cgdb_dir = ".cgdb";
+     /* Get the home directory */
+-    char *home_dir = getenv("HOME");
++    char *home_dir = getenv("HOME_ETC");
+     const char *cgdb_dir = ".cgdb";
  
-   /* Create the config directory */
-+  if (!home_dir) home_dir = getenv("HOME");
-   if (!fs_util_create_dir_in_base (home_dir, cgdb_dir))
-     {
-       logger_write_pos (logger, __FILE__, __LINE__,
+     /* Create the config directory */
++    if (!home_dir) home_dir = getenv("HOME");
+     if (!fs_util_create_dir_in_base(home_dir, cgdb_dir)) {
+         logger_write_pos(logger, __FILE__, __LINE__,
+                 "fs_util_create_dir_in_base error");

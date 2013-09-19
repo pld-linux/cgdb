@@ -1,5 +1,5 @@
---- cgdb-0.6.4/doc/cgdb.texinfo~	2007-04-29 12:03:31.578038948 +0200
-+++ cgdb-0.6.4/doc/cgdb.texinfo	2007-04-29 12:04:18.527049935 +0200
+--- cgdb-0.6.7/doc/cgdb.texinfo.orig	2013-01-14 12:31:53.000000000 +0100
++++ cgdb-0.6.7/doc/cgdb.texinfo	2013-09-19 19:28:12.598752005 +0200
 @@ -29,9 +29,9 @@
  @end quotation
  @end copying
@@ -12,3 +12,21 @@
  @end direntry
  
  @titlepage
+@@ -686,7 +686,7 @@
+ @itemx :continue
+ Send a continue command to GDB.
+ 
+-@itemx :down
++@item :down
+ Send a down command to GDB.
+ 
+ @item :e
+@@ -752,7 +752,7 @@
+ @item :syntax
+ Turn the syntax on or off.
+ 
+-@itemx :up
++@item :up
+ Send an up command to GDB.
+ 
+ @item :map @var{lhs} @var{rhs}

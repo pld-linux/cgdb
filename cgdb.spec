@@ -1,16 +1,15 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
 Summary(pl.UTF-8):	Lekki, ale w pełni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
-Version:	0.6.6
+Version:	0.6.7
 Release:	1
 License:	GPL v2
 Group:		Development/Debuggers
-Source0:	http://downloads.sourceforge.net/cgdb/%{name}-%{version}.tar.gz
-# Source0-md5:	394b542b495755ab8392b7e88dace744
+Source0:	http://cgdb.me/files/%{name}-%{version}.tar.gz
+# Source0-md5:	e2d9a973d2683faf8130a82703bf6a31
 Patch0:		%{name}-home_etc.patch
-Patch1:		%{name}-missing_includes.patch
-Patch2:		%{name}-info.patch
-URL:		http://cgdb.sourceforge.net/
+Patch1:		%{name}-info.patch
+URL:		http://cgdb.github.io/
 BuildRequires:	autoconf >= 2.5
 BuildRequires:	automake
 BuildRequires:	readline-devel >= 5.1
@@ -39,7 +38,6 @@ powinni czuć się jak w domu.
 %setup -q
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 CPPFLAGS=' -I/usr/include/ncurses '
