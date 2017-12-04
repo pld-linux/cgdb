@@ -1,20 +1,21 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
 Summary(pl.UTF-8):	Lekki, ale w pełni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
-Version:	0.6.8
-Release:	2
+Version:	0.7.0
+Release:	1
 License:	GPL v2
 Group:		Development/Debuggers
 Source0:	http://cgdb.me/files/%{name}-%{version}.tar.gz
-# Source0-md5:	7bd38c79bf4d794d239928fef401fca3
+# Source0-md5:	7bdb1b418db4bcdb16ba004aebd8f3d7
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-info.patch
 URL:		http://cgdb.github.io/
-BuildRequires:	autoconf >= 2.5
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
+BuildRequires:	libstdc++-devel
+BuildRequires:	ncurses-devel
 BuildRequires:	readline-devel >= 5.1
 BuildRequires:	texinfo
-BuildRequires:	help2man
 Requires:	gdb
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,7 +42,7 @@ powinni czuć się jak w domu.
 %patch1 -p1
 
 %build
-CPPFLAGS=' -I/usr/include/ncurses '
+#CPPFLAGS='%{rpmcppflags} -I/usr/include/ncurses '
 %{__aclocal} -I config
 %{__autoconf}
 %{__autoheader}
@@ -69,9 +70,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README
+%doc AUTHORS NEWS README
 %attr(755,root,root) %{_bindir}/cgdb
-%{_mandir}/man1/cgdb.1*
 %{_infodir}/cgdb.info*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/cgdb.txt
