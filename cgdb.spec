@@ -1,12 +1,12 @@
 Summary:	A lightweight, but fully functional curses frontend to gdb
 Summary(pl.UTF-8):	Lekki, ale w pełni funkcjonalny frontend do gdb oparty na ncurses
 Name:		cgdb
-Version:	0.7.0
-Release:	2
+Version:	0.7.1
+Release:	1
 License:	GPL v2
 Group:		Development/Debuggers
 Source0:	http://cgdb.me/files/%{name}-%{version}.tar.gz
-# Source0-md5:	7bdb1b418db4bcdb16ba004aebd8f3d7
+# Source0-md5:	a104862ffd3145b076303992e9a3af26
 Patch0:		%{name}-home_etc.patch
 Patch1:		%{name}-info.patch
 URL:		http://cgdb.github.io/
@@ -42,13 +42,12 @@ powinni czuć się jak w domu.
 %patch1 -p1
 
 %build
-#CPPFLAGS='%{rpmcppflags} -I/usr/include/ncurses '
 %{__aclocal} -I config
 %{__autoconf}
 %{__autoheader}
 %{__automake}
-
 %configure
+
 %{__make}
 
 %install
@@ -70,7 +69,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS NEWS README
+%doc AUTHORS NEWS
 %attr(755,root,root) %{_bindir}/cgdb
 %{_infodir}/cgdb.info*
 %dir %{_datadir}/%{name}

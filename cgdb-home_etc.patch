@@ -1,15 +1,12 @@
---- cgdb-0.7.0/cgdb/cgdb.cpp.orig	2013-09-19 19:12:29.892082233 +0200
-+++ cgdb-0.7.0/cgdb/cgdb.cpp	2013-09-19 19:14:09.012082558 +0200
-@@ -750,10 +750,11 @@
+--- cgdb-0.7.1/cgdb/cgdb.cpp.orig	2021-09-30 21:53:42.298867456 +0200
++++ cgdb-0.7.1/cgdb/cgdb.cpp	2021-09-30 21:55:01.881769652 +0200
+@@ -805,7 +805,8 @@ static void parse_long_options(int *argc
  static int init_home_dir(void)
  {
      /* Get the home directory */
 -    char *home_dir = getenv("HOME");
 +    char *home_dir = getenv("HOME_ETC");
-     const char *cgdb_dir = ".cgdb";
- 
-     /* Create the config directory */
 +    if (!home_dir) home_dir = getenv("HOME");
-     if (!fs_util_create_dir_in_base(home_dir, cgdb_dir)) {
-         logger_write_pos(logger, __FILE__, __LINE__,
-                 "fs_util_create_dir_in_base error");
+ 
+     /* Make sure the toplevel .cgdb dir exists */
+     snprintf(cgdb_home_dir, FSUTIL_PATH_MAX, "%s/.cgdb", home_dir);
