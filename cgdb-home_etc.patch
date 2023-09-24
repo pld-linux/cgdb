@@ -1,12 +1,14 @@
---- cgdb-0.7.1/cgdb/cgdb.cpp.orig	2021-09-30 21:53:42.298867456 +0200
-+++ cgdb-0.7.1/cgdb/cgdb.cpp	2021-09-30 21:55:01.881769652 +0200
-@@ -805,7 +805,8 @@ static void parse_long_options(int *argc
- static int init_home_dir(void)
- {
-     /* Get the home directory */
--    char *home_dir = getenv("HOME");
-+    char *home_dir = getenv("HOME_ETC");
-+    if (!home_dir) home_dir = getenv("HOME");
+--- cgdb-0.8.0/cgdb/cgdb.cpp.orig	2023-09-24 20:11:56.709491005 +0200
++++ cgdb-0.8.0/cgdb/cgdb.cpp	2023-09-24 20:22:37.382686847 +0200
+@@ -339,7 +339,10 @@ static int init_home_dir(void)
+     if (cgdb_home_envvar != NULL) { 
+         snprintf(cgdb_home_dir, FSUTIL_PATH_MAX, "%s", cgdb_home_envvar); 
+     } else { 
+-        snprintf(cgdb_home_dir, FSUTIL_PATH_MAX, "%s/.cgdb", getenv("HOME"));
++        char *home_etc_envvar = getenv("HOME_ETC");
++	if (home_etc_envvar == NULL)
++            home_etc_envvar = getenv("HOME");
++        snprintf(cgdb_home_dir, FSUTIL_PATH_MAX, "%s/.cgdb", home_etc_envvar);
+     }
  
-     /* Make sure the toplevel .cgdb dir exists */
-     snprintf(cgdb_home_dir, FSUTIL_PATH_MAX, "%s/.cgdb", home_dir);
+     /* Make sure the toplevel cgdb dir exists */
